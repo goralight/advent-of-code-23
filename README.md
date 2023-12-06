@@ -12,7 +12,7 @@ $ npm run start
 ```
 
 ## Days / Challenges Completed
-- [ ] Day 1
+- [x] Day 1 - Icon
 - [ ] Day 2
 - [ ] Day 3
 - [ ] Day 4
