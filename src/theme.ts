@@ -1,5 +1,3 @@
-
-
 export interface Advent23Theme {
   colors: {
     grey: {
@@ -70,16 +68,16 @@ export const advent23Theme: Advent23Theme = {
       lightGrey: '#aeaeae',
       grey: '#bdbdbd',
       darkGrey: '#757575',
-      black: '#212121' /* black */,
+      black: '#212121' /* black */
     },
     yellow: {
       supernova: '#fac900' /* yellow / warning */,
-      spicyMustard: '#6e5a0d' /* dark yellow */,
+      spicyMustard: '#6e5a0d' /* dark yellow */
     },
     red: {
       orangeRed: '#ff4600' /* red / error */,
       cognac: '#9a360e' /* dark red */,
-      fireEngineRed: '#c52425' /* dark red */,
+      fireEngineRed: '#c52425' /* dark red */
     },
     green: {
       silverTree: '#70bd91' /* light green */,
@@ -88,18 +86,18 @@ export const advent23Theme: Advent23Theme = {
       cruseo: '#0a5d2c' /* dark green */,
       countyGreen: '#003d19' /* darkest green */,
       padua: '#b1e3cc' /* lightest green - placeholder color */,
-      vistaBlue: '#94d1b4' /* light green - placeholder color */,
+      vistaBlue: '#94d1b4' /* light green - placeholder color */
     },
     brown: {
       acadia: '#392f2d' /* brown */,
-      scotchMist: '#efe9cb' /* light brown */,
+      scotchMist: '#efe9cb' /* light brown */
     },
     blue: {
       nileBlue: '#243853' /* blue */,
-      blackPearl: '#071126' /* navy blue */,
+      blackPearl: '#071126' /* navy blue */
     },
     pink: {
-      pastelMagenta: '#ff9dbf' /* pink */,
+      pastelMagenta: '#ff9dbf' /* pink */
     }
   }
 }

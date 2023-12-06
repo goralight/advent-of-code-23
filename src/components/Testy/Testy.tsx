@@ -1,6 +1,6 @@
 import React from 'react'
 
-import styled from '@emotion/styled';
+import styled from '@emotion/styled'
 
 type Size = 'sml' | 'med' | 'lrg'
 
@@ -34,7 +34,7 @@ interface TestProps {
   size?: Size
 }
 
-const Test = ({ children, size = 'med' }: TestProps) => {
+const Test = ({ children, size = 'med' }: TestProps): JSX.Element => {
   return (
     <StyledDiv size={size}>
       {children}
