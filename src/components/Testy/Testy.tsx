@@ -2,7 +2,7 @@ import React from 'react'
 
 import styled from '@emotion/styled'
 
-type Size = 'sml' | 'med' | 'lrg'
+type Size = 'sml' | 'md' | 'lrg'
 
 const StyledDiv = styled.div<{ size: Size }>(
   ({ theme, size }): string => {
@@ -12,7 +12,7 @@ const StyledDiv = styled.div<{ size: Size }>(
       case 'sml':
         padding = 4
         break
-      case 'med':
+      case 'md':
         padding = 8
         break
       case 'lrg':
@@ -34,7 +34,7 @@ interface TestProps {
   size?: Size
 }
 
-const Test = ({ children, size = 'med' }: TestProps): JSX.Element => {
+const Test = ({ children, size = 'md' }: TestProps): JSX.Element => {
   return (
     <StyledDiv size={size}>
       {children}
