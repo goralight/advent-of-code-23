@@ -2,12 +2,6 @@ import type { Meta, StoryObj } from '@storybook/react'
 
 import Avatar from './Avatar'
 
-// src?: string
-// indicator?: 'online' | 'busy' | 'unknown'
-// initial?: string
-// isHidden?: boolean
-// showFlair?: boolean
-
 const meta = {
   title: 'Avatar',
   component: Avatar,
@@ -16,7 +10,7 @@ const meta = {
   },
   tags: ['autodocs'],
   args: {
-    src: '',
+    src: '/images/otter.jpeg',
     indicator: 'online',
     initial: 'J',
     isHidden: false,
@@ -28,7 +22,7 @@ const meta = {
     },
     indicator: {
       control: 'select',
-      options: ['online', 'busy', 'unknown']
+      options: ['online', 'busy', 'unknown', undefined]
     },
     initial: {
       control: 'text'
@@ -36,8 +30,6 @@ const meta = {
     isHidden: {
       control: 'boolean'
     },
-
-
     showFlair: {
       control: 'boolean'
     }
@@ -49,7 +41,7 @@ type Story = StoryObj<typeof meta>
 
 export const Primary: Story = {
   args: {
-    src: '',
+    src: '/images/otter.jpeg',
     indicator: 'online',
     initial: 'J',
     isHidden: false,
