@@ -9,7 +9,7 @@ type IconProps = {
   color?: IconColor
 }
 
-const Icon = ({ icon, size = 'md', color = 'white' }: IconProps): JSX.Element | null => {
+const Icon = ({ icon, size = 'md', color = 'white' }: IconProps): JSX.Element => {
   let iconSize: string
 
   switch (size) {
