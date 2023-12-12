@@ -14,7 +14,7 @@ $ npm run start
 ## Days / Challenges Completed
 - [x] Day 1 - Icon, 06/12/23
 - [x] Day 2 - Avatar, 07/12/23
-- [ ] Day 3
+- [x] Day 3 - Input, 12/12/23
 - [ ] Day 4
 - [ ] Day 5
 - [ ] Day 6
