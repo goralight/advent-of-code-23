@@ -11,6 +11,7 @@ type InputType = 'text'
 type InputProps = {
   type?: InputType
   label?: string
+  onChange?: (value: string) => void
 }
 
 const InputContainer = styled.div(
@@ -53,8 +54,7 @@ const InputStyled = styled.input(
   ({ theme }): string => {
     return `
       height: 100px;
-      width: 100%;
-      padding: 0 43px;
+      padding: 0 60px 0 43px;
       background-color: ${theme.colors.grey.white};
       border: none;
       font-family: Inter;
@@ -70,7 +70,7 @@ const InputStyled = styled.input(
 )
 
 const Input = forwardRef<HTMLInputElement, InputProps>(
-  ({ type = 'text', label }: InputProps, ref): JSX.Element => {
+  ({ type = 'text', label, onChange }: InputProps, ref): JSX.Element => {
     const [isFocused, setIsFocused] = useState(false)
     const [value, setValue] = useState('')
 
@@ -80,6 +80,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
 
     const handleInput = useCallback((e: React.ChangeEvent<HTMLInputElement>): void => {
       setValue(e.target.value)
+      onChange?.(e.target.value)
     }, [])
 
     return (

@@ -7,9 +7,10 @@ type IconProps = {
   icon: IconName
   size?: IconSize
   color?: IconColor
+  onClick?: () => void
 }
 
-const Icon = ({ icon, size = 'md', color = 'white' }: IconProps): JSX.Element => {
+const Icon = ({ icon, size = 'md', color = 'white', onClick }: IconProps): JSX.Element => {
   let iconSize: string
 
   switch (size) {
@@ -30,33 +31,48 @@ const Icon = ({ icon, size = 'md', color = 'white' }: IconProps): JSX.Element =>
       break
   }
 
-  const StyledSvg = styled.svg<{ color: IconColor }>(
-    ({ theme, color }): string => {
+  const StyledSvg = styled.svg<{ color: IconColor, isClickable: boolean }>(
+    ({ theme, color, isClickable }): string => {
+      let fill: string
+
       switch (color) {
         case 'red':
-          return `fill: ${theme.colors.red.cognac};`
+          fill = `fill: ${theme.colors.red.cognac};`
+          break
         case 'green':
-          return `fill: ${theme.colors.green.spanishGreen};`
+          fill = `fill: ${theme.colors.green.spanishGreen};`
+          break
         case 'blue':
-          return `fill: ${theme.colors.blue.nileBlue};`
+          fill = `fill: ${theme.colors.blue.nileBlue};`
+          break
         case 'yellow':
-          return `fill: ${theme.colors.yellow.spicyMustard};`
+          fill = `fill: ${theme.colors.yellow.spicyMustard};`
+          break
         case 'brown':
-          return `fill: ${theme.colors.brown.acadia};`
+          fill = `fill: ${theme.colors.brown.acadia};`
+          break
         case 'pink':
-          return `fill: ${theme.colors.pink.pastelMagenta};`
+          fill = `fill: ${theme.colors.pink.pastelMagenta};`
+          break
         case 'grey':
-          return `fill: ${theme.colors.grey.lightGrey};`
+          fill = `fill: ${theme.colors.grey.lightGrey};`
+          break
         case 'black':
-          return `fill: ${theme.colors.grey.black};`
+          fill = `fill: ${theme.colors.grey.black};`
+          break
         case 'white':
-          return `fill: ${theme.colors.grey.white};`
+          fill = `fill: ${theme.colors.grey.white};`
       }
+
+      return `
+        ${fill}
+        ${isClickable ? 'cursor: pointer;' : ''}
+      `
     }
   )
 
   return (
-    <StyledSvg color={color} width={iconSize} height={iconSize}>
+    <StyledSvg color={color} isClickable={!!onClick} width={iconSize} height={iconSize} onClick={onClick} >
       <use href={`/icons/sprite.svg#${icon}`} />
     </StyledSvg>
   )
