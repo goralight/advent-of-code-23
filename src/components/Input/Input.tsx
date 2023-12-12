@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react'
+import React, { forwardRef, useCallback, useState } from 'react'
 
 import styled from '@emotion/styled'
 
@@ -16,14 +16,14 @@ type InputProps = {
 const InputContainer = styled.div(
   ({ theme }): string => {
     return `
-    position: relative;
-  
-    *:invalid {
-      & ~ label {
-        color: ${theme.colors.grey.white};
+      position: relative;
+    
+      *:invalid {
+        & ~ label {
+          color: ${theme.colors.grey.white};
+        }
       }
-    }
-  `
+    `
   }
 )
 
@@ -50,57 +50,57 @@ const LabelStyled = styled.label<{ isFocused: boolean, type: InputType }>(
 const InputStyled = styled.input(
   ({ theme }): string => {
     return `
-    height: 100px;
-    width: 100%;
-    padding: 0 43px;
-    background-color: ${theme.colors.grey.white};
-    border: none;
-    font-family: Kalam;
-    font-size: 32px;
-    
-    &:invalid {
-      color: ${theme.colors.grey.white};
-      background-color: ${theme.colors.red.orangeRed};
-      border: 3px solid ${theme.colors.red.fireEngineRed};
-    }
+      height: 100px;
+      width: 100%;
+      padding: 0 43px;
+      background-color: ${theme.colors.grey.white};
+      border: none;
+      font-family: Kalam;
+      font-size: 32px;
+      
+      &:invalid {
+        color: ${theme.colors.grey.white};
+        background-color: ${theme.colors.red.orangeRed};
+        border: 3px solid ${theme.colors.red.fireEngineRed};
+      }
     `
   }
 )
 
-const Input = ({
-  type = 'text',
-  label
-}: InputProps): JSX.Element => {
-  const [isFocused, setIsFocused] = useState(false)
-  const [value, setValue] = useState('')
+const Input = forwardRef<HTMLInputElement, InputProps>(
+  ({ type = 'text', label }: InputProps, ref): JSX.Element => {
+    const [isFocused, setIsFocused] = useState(false)
+    const [value, setValue] = useState('')
 
-  const handleFocus = (focus: boolean) => () => {
-    setIsFocused(focus)
-  }
+    const handleFocus = useCallback((focus: boolean) => () => {
+      setIsFocused(focus)
+    }, [])
 
-  const handleInput = (e: React.ChangeEvent<HTMLInputElement>): void => {
-    setValue(e.target.value)
-  }
+    const handleInput = useCallback((e: React.ChangeEvent<HTMLInputElement>): void => {
+      setValue(e.target.value)
+    }, [])
 
-  return (
-    <InputContainer>
-      <InputStyled
-        id={label}
-        value={value}
-        onChange={handleInput}
-        type={type}
-        onFocus={handleFocus(true)}
-        onBlur={handleFocus(false)}
-      />
-      {label && <LabelStyled
-        type={type}
-        isFocused={isFocused || value.length > 0}
-        htmlFor={label}
-      >
-        {label}
-      </LabelStyled>}
-    </InputContainer>
-  )
-}
+    return (
+      <InputContainer>
+        <InputStyled
+          ref={ref}
+          id={label}
+          value={value}
+          onChange={handleInput}
+          type={type}
+          onFocus={handleFocus(true)}
+          onBlur={handleFocus(false)}
+        />
+        {label && <LabelStyled
+          type={type}
+          isFocused={isFocused || value.length > 0}
+          htmlFor={label}
+        >
+          {label}
+        </LabelStyled>}
+      </InputContainer>
+    )
+  })
 
+Input.displayName = 'Input'
 export default Input
