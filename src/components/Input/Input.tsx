@@ -53,8 +53,7 @@ const InputStyled = styled.input(
   ({ theme }): string => {
     return `
       height: 100px;
-      width: 100%;
-      padding: 0 43px;
+      padding: 0 60px 0 43px;
       background-color: ${theme.colors.grey.white};
       border: none;
       font-family: Inter;
