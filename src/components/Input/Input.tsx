@@ -35,6 +35,8 @@ const LabelStyled = styled.label<{ isFocused: boolean, type: InputType }>(
       left: ${isFocused ? '9' : '43'}px;
       transform: ${isFocused ? 'none' : 'translateY(-50%)'};
       font-size: ${isFocused ? '18' : '32'}px;
+      font-family: Kalam;
+      text-transform: uppercase;
       line-height: 30px;
       font-weight: 700;
       color: ${type === 'email' ? theme.colors.grey.black : theme.colors.green.spanishGreen};
@@ -55,7 +57,7 @@ const InputStyled = styled.input(
       padding: 0 43px;
       background-color: ${theme.colors.grey.white};
       border: none;
-      font-family: Kalam;
+      font-family: Inter;
       font-size: 32px;
       
       &:invalid {

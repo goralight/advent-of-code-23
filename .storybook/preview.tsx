@@ -1,10 +1,12 @@
+import React from 'react';
 import { withThemeFromJSXProvider } from '@storybook/addon-themes';
 
 import type { Preview } from "@storybook/react";
 import { themes } from '@storybook/theming';
 
-import { ThemeProvider } from "@emotion/react";
+import { ThemeProvider, Global } from "@emotion/react";
 import { advent23Theme } from "../src/theme";
+import { fontStyles } from "../src/FontStyles";
 
 const preview: Preview = {
   parameters: {
@@ -28,7 +30,15 @@ const preview: Preview = {
   },
 };
 
+const GlobalStyles = <Global styles={fontStyles} />
+
 export const decorators = [
+  (Story) => (
+    <>
+      {GlobalStyles}
+      <Story />
+    </>
+  ),
   withThemeFromJSXProvider({
     themes: {
       advent23Theme
