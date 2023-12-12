@@ -16,22 +16,33 @@ type InputProps = {
 const InputContainer = styled.div(
   ({ theme }): string => {
     return `
-      position: relative;
-    `
+    position: relative;
+  
+    *:invalid {
+      & ~ label {
+        color: ${theme.colors.grey.white};
+      }
+    }
+  `
   }
 )
 
-const LabelStyled = styled.label<{ isFocused: boolean }>(
-  ({ theme, isFocused }): string => {
+const LabelStyled = styled.label<{ isFocused: boolean, type: InputType }>(
+  ({ theme, isFocused, type }): string => {
     return `
       position: absolute;
-      top: ${isFocused ? '5' : '40'}px;
+      top: ${isFocused ? '5px' : '50%'};
       left: ${isFocused ? '9' : '43'}px;
+      transform: ${isFocused ? 'none' : 'translateY(-50%)'};
       font-size: ${isFocused ? '18' : '32'}px;
       line-height: 30px;
       font-weight: 700;
-      color: ${theme.colors.green.spanishGreen};
-      transition: all 0.3s ease-in-out;
+      color: ${type === 'email' ? theme.colors.grey.black : theme.colors.green.spanishGreen};
+      cursor: auto;
+      transition: top 0.3s ease-in-out,
+        left 0.3s ease-in-out,
+        transform 0.3s ease-in-out,
+        font-size 0.3s ease-in-out;
     `
   }
 )
@@ -48,6 +59,7 @@ const InputStyled = styled.input(
     font-size: 32px;
     
     &:invalid {
+      color: ${theme.colors.grey.white};
       background-color: ${theme.colors.red.orangeRed};
       border: 3px solid ${theme.colors.red.fireEngineRed};
     }
@@ -72,8 +84,21 @@ const Input = ({
 
   return (
     <InputContainer>
-      {label && <LabelStyled isFocused={isFocused || value.length > 0} htmlFor={label}>{label}</LabelStyled>}
-      <InputStyled id={label} value={value} onChange={handleInput} type={type} onFocus={handleFocus(true)} onBlur={handleFocus(false)} />
+      <InputStyled
+        id={label}
+        value={value}
+        onChange={handleInput}
+        type={type}
+        onFocus={handleFocus(true)}
+        onBlur={handleFocus(false)}
+      />
+      {label && <LabelStyled
+        type={type}
+        isFocused={isFocused || value.length > 0}
+        htmlFor={label}
+      >
+        {label}
+      </LabelStyled>}
     </InputContainer>
   )
 }
