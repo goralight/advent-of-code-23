@@ -18,7 +18,7 @@ $ npm run start
 - [x] Day 4 - PasswordToggle, 12/12/23
 - [ ] Day 5
 - [ ] Day 6
-- [ ] Day 7
+- [x] Day 7 - BurgerMenu button, 14/12/23
 - [ ] Day 8
 - [ ] Day 9
 - [ ] Day 10
