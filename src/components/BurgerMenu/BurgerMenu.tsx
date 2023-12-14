@@ -23,9 +23,7 @@ const BurgerButton = styled.button(
     `
   }
 )
-// translateY(18px)
-// translateY(-18px)
-//     transform: rotate(45deg) translateY(-8px) translateX(-8px);
+
 const LineContainer = styled.div<{ isToggled: boolean }>`
   display: flex;
   height: 100%;

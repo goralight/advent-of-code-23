@@ -8,15 +8,7 @@ const meta = {
   parameters: {
     layout: 'centered'
   },
-  tags: ['autodocs'],
-  args: {
-    onClick: (): void => { console.log('clicked') }
-  },
-  argTypes: {
-    onClick: {
-      action: 'clicked'
-    }
-  }
+  tags: ['autodocs']
 } satisfies Meta<typeof BurgerMenu>
 
 export default meta
