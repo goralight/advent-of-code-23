@@ -21,9 +21,9 @@ const StyledDiv = styled.div<{ size: Size }>(
     }
 
     return `
-      color: ${theme.colors.green.spanishGreen};
-      background-color: ${theme.colors.red.cognac};
-      border: 1px solid ${theme.colors.grey.lightGrey};
+      color: ${theme.palette.colors.yellow.main};
+      background-color: ${theme.palette.colors.red.main};
+      border: 1px solid ${theme.palette.colors.grey.light};
       padding: ${padding}px;
     `
   }

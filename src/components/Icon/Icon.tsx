@@ -37,31 +37,31 @@ const Icon = ({ icon, size = 'md', color = 'white', onClick }: IconProps): JSX.E
 
       switch (color) {
         case 'red':
-          fill = `fill: ${theme.colors.red.cognac};`
+          fill = `fill: ${theme.palette.colors.red.light};`
           break
         case 'green':
-          fill = `fill: ${theme.colors.green.spanishGreen};`
+          fill = `fill: ${theme.palette.colors.green.main};`
           break
         case 'blue':
-          fill = `fill: ${theme.colors.blue.nileBlue};`
+          fill = `fill: ${theme.palette.colors.blue.main};`
           break
         case 'yellow':
-          fill = `fill: ${theme.colors.yellow.spicyMustard};`
+          fill = `fill: ${theme.palette.colors.yellow.dark};`
           break
         case 'brown':
-          fill = `fill: ${theme.colors.brown.acadia};`
+          fill = `fill: ${theme.palette.colors.brown.main};`
           break
         case 'pink':
-          fill = `fill: ${theme.colors.pink.pastelMagenta};`
+          fill = `fill: ${theme.palette.colors.pink.main};`
           break
         case 'grey':
-          fill = `fill: ${theme.colors.grey.lightGrey};`
+          fill = `fill: ${theme.palette.colors.grey.light};`
           break
         case 'black':
-          fill = `fill: ${theme.colors.grey.black};`
+          fill = `fill: ${theme.palette.colors.grey.black};`
           break
         case 'white':
-          fill = `fill: ${theme.colors.grey.white};`
+          fill = `fill: ${theme.palette.colors.grey.white};`
       }
 
       return `

@@ -16,11 +16,11 @@ type AvatarProps = {
 const AvatarContainer = styled.div<{ isHidden: boolean }>`
   position: relative;
   border-radius: 50%;
-  background-color: ${({ theme }): string => theme.colors.green.spanishGreen};
+  background-color: ${({ theme }): string => theme.palette.colors.green.main};
 
   width: 68px;
   height: 68px;
-  border: solid 6px ${({ theme, isHidden }): string => isHidden ? theme.colors.green.vistaBlue : theme.colors.grey.white};
+  border: solid 6px ${({ theme, isHidden }): string => isHidden ? theme.palette.colors.green.light as string : theme.palette.colors.grey.white};
 `
 
 const CenteredContainer = styled.div<{ src: string | undefined, isHidden: boolean }>`
@@ -36,7 +36,7 @@ const CenteredContainer = styled.div<{ src: string | undefined, isHidden: boolea
   ${({ src, isHidden }): string => src && !isHidden ? `background-image: url("${src}");` : ''}
   background-size: cover;
   border-radius: 50%;
-  color: ${({ theme }): string => theme.colors.grey.white};
+  color: ${({ theme }): string => theme.palette.colors.grey.white};
 `
 
 const Flair = styled.img`
@@ -53,13 +53,13 @@ const Indicator = styled.div<{ indicator: AvatarProps['indicator'] }>(
 
     switch (indicator) {
       case 'online':
-        backgroundColor = theme.colors.green.spanishGreen
+        backgroundColor = theme.palette.colors.green.main
         break
       case 'busy':
-        backgroundColor = theme.colors.red.orangeRed
+        backgroundColor = theme.palette.colors.red.main
         break
       case 'unknown':
-        backgroundColor = theme.colors.yellow.supernova
+        backgroundColor = theme.palette.colors.yellow.main
         break
     }
 
@@ -71,7 +71,7 @@ const Indicator = styled.div<{ indicator: AvatarProps['indicator'] }>(
 
       padding: 4px;
       border-radius: 50%;
-      border: solid 2px ${theme.colors.grey.white};
+      border: solid 2px ${theme.palette.colors.grey.white};
       background-color: ${backgroundColor};
     `
   }
