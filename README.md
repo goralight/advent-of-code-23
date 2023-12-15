@@ -22,7 +22,7 @@ $ npm run start
 - [ ] Day 8
 - [ ] Day 9
 - [ ] Day 10
-- [ ] Day 11
+- [x] Day 11 - Checkbox - 15/12/23
 - [ ] Day 12
 - [ ] Day 13
 - [ ] Day 14
