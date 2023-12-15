@@ -14,7 +14,7 @@ const BurgerButton = styled.button(
       height: 58px;
       padding: 15px 10px;
       border: none;
-      background-color: ${theme.colors.yellow.supernova};
+      background-color: ${theme.palette.colors.yellow.main};
       cursor: pointer;
     
       &:focus {
@@ -44,7 +44,7 @@ const Line = styled.div(
   ({ theme }): string => {
     return `
       transition: transform 0.2s ease-in-out;
-      border: solid 2px ${theme.colors.grey.black};
+      border: solid 2px ${theme.palette.colors.grey.black};
     `
   }
 )

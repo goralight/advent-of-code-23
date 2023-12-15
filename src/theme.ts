@@ -1,103 +1,98 @@
-export interface Advent23Theme {
-  colors: {
-    grey: {
-      /** White */
-      white: string
-      /** Light gray, bombay */
-      lightGrey: string
-      /** Gray */
-      grey: string
-      /** Dark gray */
-      darkGrey: string
-      /** Black */
-      black: string
-    }
-    yellow: {
-      /** Yellow / Warning */
-      supernova: string
-      /** Dark yellow */
-      spicyMustard: string
-    }
-    red: {
-      /** Red / Error */
-      orangeRed: string
-      /** Dark red */
-      cognac: string
-      /** Dark red */
-      fireEngineRed: string
-    }
-    green: {
-      /** Light green */
-      silverTree: string
-      /** Very light green */
-      turquoiseGreen: string
-      /** Medium green */
-      spanishGreen: string
-      /** Dark green */
-      cruseo: string
-      /** Darkest green */
-      countyGreen: string
-      /** Lightest green - Placeholder color */
-      padua: string
-      /** Light green - Placeholder color */
-      vistaBlue: string
-    }
-    brown: {
-      /** Brown */
-      acadia: string
-      /** Light brown */
-      scotchMist: string
-    }
-    blue: {
-      /** Blue */
-      nileBlue: string
-      /** Navy blue */
-      blackPearl: string
-    }
-    pink: {
-      /** Pink */
-      pastelMagenta: string
-    }
-  }
+interface Color {
+  light?: string
+  main: string
+  dark?: string
 }
 
-export const advent23Theme: Advent23Theme = {
-  colors: {
-    grey: {
-      white: '#f5f5f5',
-      lightGrey: '#aeaeae',
-      grey: '#bdbdbd',
-      darkGrey: '#757575',
-      black: '#212121' /* black */
+interface GreyColor extends Color {
+  white: string
+  black: string
+}
+
+interface OrdinalColor {
+  pastel?: string
+  main: string
+  muted?: string
+}
+
+export interface StandardTheme {
+  palette: {
+    primary: OrdinalColor,
+    secondary: OrdinalColor,
+    tertiary?: OrdinalColor,
+    state?: {
+      success: string,
+      error: string,
+      warning: string,
     },
-    yellow: {
-      supernova: '#fac900' /* yellow / warning */,
-      spicyMustard: '#6e5a0d' /* dark yellow */
+    colors: {
+      grey: GreyColor
+      red: Color
+      green: Color
+      blue: Color
+    } & Record<string, Color>,
+  },
+}
+
+// todo: add more theme properties; font, spacing, border, etc.
+
+export const advent23Theme: StandardTheme = {
+  palette: {
+    primary: {
+      main: '#008a52' // placeholder
     },
-    red: {
-      orangeRed: '#ff4600' /* red / error */,
-      cognac: '#9a360e' /* dark red */,
-      fireEngineRed: '#c52425' /* dark red */
+    secondary: {
+      main: '#70bd91' // placeholder
     },
-    green: {
-      silverTree: '#70bd91' /* light green */,
-      turquoiseGreen: '#a0ccb7' /* very light green */,
-      spanishGreen: '#008a52' /* medium green */,
-      cruseo: '#0a5d2c' /* dark green */,
-      countyGreen: '#003d19' /* darkest green */,
-      padua: '#b1e3cc' /* lightest green - placeholder color */,
-      vistaBlue: '#94d1b4' /* light green - placeholder color */
+    state: {
+      success: '#70bd91', // placeholder
+      error: '#c52425', // placeholder
+      warning: '#fac900' // placeholder
     },
-    brown: {
-      acadia: '#392f2d' /* brown */,
-      scotchMist: '#efe9cb' /* light brown */
-    },
-    blue: {
-      nileBlue: '#243853' /* blue */,
-      blackPearl: '#071126' /* navy blue */
-    },
-    pink: {
-      pastelMagenta: '#ff9dbf' /* pink */
+    colors: {
+      grey: {
+        white: '#f5f5f5',
+        light: '#aeaeae',
+        main: '#bdbdbd',
+        dark: '#757575',
+        black: '#212121'
+      } as GreyColor,
+      red: {
+        /** cognac */
+        light: '#9a360e',
+        /** orangeRed */
+        main: '#ff4600',
+        /** fireEngineRed */
+        dark: '#c52425'
+      },
+      green: {
+        /** vistaBlue */
+        light: '#94d1b4',
+        /** spanishGreen */
+        main: '#008a52'
+      },
+      blue: {
+        /** nileBlue */
+        main: '#243853',
+        /** navy blue */
+        dark: '#071126'
+      },
+      yellow: {
+        /** supernova */
+        main: '#fac900',
+        /** spicyMustard */
+        dark: '#6e5a0d'
+      },
+      brown: {
+        /** scotchMist */
+        dark: '#efe9cb',
+        /** acadia */
+        main: '#392f2d'
+      },
+      pink: {
+        /** pastelMagenta */
+        main: '#ff9dbf'
+      }
     }
   }
 }
