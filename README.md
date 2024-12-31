@@ -37,10 +37,10 @@ git push
 - [ ] Day 1
 - [ ] Day 2
 - [ ] Day 3
-- [ ] Day 4
+- [x] Day 4 - Heading, 22/12/24 [Noor]
 - [ ] Day 5
 - [ ] Day 6
-- [ ] Day 7
+- [x] Day 7 - Slug, 31/12/24 [Noor]
 - [ ] Day 8
 - [ ] Day 9
 - [ ] Day 10
@@ -61,17 +61,17 @@ git push
 
 
 ## Days / Challenges Completed [2023]
-- [x] Day 1 - Icon, 06/12/23
-- [x] Day 2 - Avatar, 07/12/23
-- [x] Day 3 - Input, 12/12/23
-- [x] Day 4 - PasswordToggle, 12/12/23
+- [x] Day 1 - Icon, 06/12/23 [John]
+- [x] Day 2 - Avatar, 07/12/23 [John]
+- [x] Day 3 - Input, 12/12/23 [John]
+- [x] Day 4 - PasswordToggle, 12/12/23 [John]
 - [ ] Day 5
 - [ ] Day 6
-- [x] Day 7 - BurgerMenu button, 14/12/23
+- [x] Day 7 - BurgerMenu button, 14/12/23 [John]
 - [ ] Day 8
 - [ ] Day 9
 - [ ] Day 10
-- [x] Day 11 - Checkbox - 15/12/23
+- [x] Day 11 - Checkbox - 15/12/ [John]
 - [ ] Day 12
 - [ ] Day 13
 - [ ] Day 14
