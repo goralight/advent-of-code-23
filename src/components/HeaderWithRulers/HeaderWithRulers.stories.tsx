@@ -10,10 +10,10 @@ const meta = {
   },
   tags: ['autodocs'],
   args: {
-    text: 'Heading'
+    children: 'Heading'
   },
   argTypes: {
-    text: {
+    children: {
       control: 'text'
     }
   }

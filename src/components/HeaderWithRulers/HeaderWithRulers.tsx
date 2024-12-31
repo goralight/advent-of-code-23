@@ -2,7 +2,7 @@ import React from 'react'
 import styled from '@emotion/styled'
 
 interface Props {
-  text: string
+  children: string
 }
 
 const Container = styled.div`
@@ -32,13 +32,13 @@ const Line = styled.div`
   height: 1px;
 `
 
-const HeaderWithRulers = ({ text }: Props): JSX.Element => {
+const HeaderWithRulers = ({ children }: Props): JSX.Element => {
   return (
     <Container>
       <LineContainer>
         <Line/>
       </LineContainer>
-      <Header>{text}</Header>
+      <Header>{children}</Header>
       <LineContainer>
         <Line/>
       </LineContainer>
